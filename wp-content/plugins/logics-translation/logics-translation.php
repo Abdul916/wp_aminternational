@@ -1,4 +1,5 @@
 <?php
+
 /*
 Plugin Name: Logics Translation
 Plugin URI: https://explorelogics.com/
@@ -8,6 +9,7 @@ Author: Explore Logics IT
 Author URI: https://explorelogics.com/
 Text Domain: Logics Translation
 */
+
 
 
 // Start Translation Working by Explore Logics IT
@@ -32,6 +34,117 @@ function custom_wpml_translate_strings( $text, $name, $group ) {
 add_filter( 'wpml_translate_single_string', 'custom_wpml_translate_strings', 10, 3 );
 
 function custom_translate_texts( $translated_text, $text, $domain ) {
+    if ( $text === 'Price:' ) {
+        return 'Prix:';
+    }
+    if ( $text === 'On sale' ) {
+        return 'En promotion';
+    }
+    if ( $text === 'In stock' ) {
+        return 'En stock';
+    }
+    if ( $text === 'Out of stock' ) {
+        return 'Rupture de stock';
+    }
+    if ( $text === 'Filter' ) {
+        return 'Filtrer';
+    }
+    if ( $text === 'Sort by popularity' ) {
+        return 'Trier par popularité';
+    }
+    if ( $text === 'Sort by average rating' ) {
+        return 'Trier par note moyenne';
+    }
+    if ( $text === 'Sort by latest' ) {
+        return 'Trier par nouveauté';
+    }
+    if ( $text === 'Sort by price: low to high' ) {
+        return 'Trier par prix : du plus bas au plus élevé';
+    }
+    if ( $text === 'Sort by price: high to low' ) {
+        return 'Trier par prix : du plus élevé au plus bas';
+    }
+    if ( $text === 'Shop' ) {
+        return 'Boutique';
+    }
+    if ( $text === 'New' ) {
+        return 'Nouveau';
+    }
+    if ( $text === 'Add to cart' ) {
+        return 'Ajouter au panier';
+    }
+    if ( $text === 'Quick View' ) {
+        return 'Aperçu rapide';
+    }
+    if ( $text === 'Wishlist is empty.' ) {
+        return 'La liste de souhaits est vide.';
+    }
+    if ( $text === 'Return to shop' ) {
+        return 'Retour à la boutique';
+    }
+    if ( $text === "You don't have any products in the wishlist yet. You will find a lot of interesting products on our &quot;Shop&quot; page." ) {
+        return "Vous n'avez encore aucun produit dans votre liste de souhaits. Vous trouverez de nombreux produits intéressants sur notre page \"Boutique\".";
+    }
+    if ( $text === 'Shopping Cart' ) { // Not working
+        return 'Panier d\'achat';
+    }
+    if ( $text === 'Remove' ) {
+        return 'Supprimer';
+    }
+    if ( $text === 'Subtotal:' ) {
+        return 'Sous-total:';
+    }
+    if ( $text === 'View cart' ) {
+        return 'Voir le panier';
+    }
+    if ( $text === 'Checkout' ) {
+        return 'Passer à la caisse';
+    }
+    if ( $text === 'Your cart is empty' ) {
+        return 'Votre panier est vide';
+    }
+    if ( $text === 'You may check out all the available products and buy some in the shop' ) {
+        return 'Vous pouvez consulter tous les produits disponibles et en acheter dans la boutique';
+    }
+    if ( $text === 'Product' ) {
+        return 'Produit';
+    }
+    if ( $text === 'Price' ) {
+        return 'Prix';
+    }
+    if ( $text === 'Quantity' ) {
+        return 'Quantité';
+    }
+    if ( $text === 'Order notes' ) {
+        return 'Notes de commande';
+    }
+    if ( $text === 'Cart totals' ) {
+        return 'Totaux du panier';
+    }
+    if ( $text === 'Subtotal' ) {
+        return 'Sous-total';
+    }
+    if ( $text === 'Total' ) {
+        return 'Total';
+    }
+    if ( $text === 'Proceed to checkout' ) {
+        return 'Passer à la caisse';
+    }
+    if ( $text === 'Coupon code' ) {
+        return 'Code promo';
+    }
+    if ( $text === 'Apply coupon' ) {
+        return 'Appliquer le coupon';
+    }
+    if ( $text === 'Notes about your order, e.g. special notes for delivery.' ) {
+        return 'Remarques concernant votre commande, par ex. instructions spéciales pour la livraison.';
+    }
+    if ( $text === 'Update cart' ) {
+        return 'Mise à jour panier';
+    }
+    if ( $text === 'Invalid billing email address' ) {
+        return 'Adresse e-mail de facturation non valide';
+    }
     if ( strpos( $text, 'is a required field.' ) !== false ) {
         $translated_text = str_replace( 'is a required field.', 'est un champ obligatoire.', $text );
     }
@@ -45,117 +158,6 @@ add_filter( 'gettext', 'custom_translate_texts', 20, 3 );
 function custom_translate_woocommerce_checkout( $translated_text, $text, $domain ) {
     if ( $domain === 'woocommerce' ) {
         switch ( $text ) {
-            case 'Price:':
-            $translated_text = 'Prix:';
-            break;
-            case 'On sale':
-            $translated_text = 'En promotion';
-            break;
-            case 'In stock':
-            $translated_text = 'En stock';
-            break;
-            case 'Out of stock':
-            $translated_text = 'Rupture de stock';
-            break;
-            case 'Filter':
-            $translated_text = 'Filtrer';
-            break;
-            case 'Sort by popularity':
-            $translated_text = 'Trier par popularité';
-            break;
-            case 'Sort by average rating':
-            $translated_text = 'Trier par note moyenne';
-            break;
-            case 'Sort by latest':
-            $translated_text = 'Trier par nouveauté';
-            break;
-            case 'Sort by price: low to high':
-            $translated_text = 'Trier par prix : du plus bas au plus élevé';
-            break;
-            case 'Sort by price: high to low':
-            $translated_text = 'Trier par prix : du plus élevé au plus bas';
-            break;
-            case 'Shop':
-            $translated_text = 'Boutique';
-            break;
-            case 'New':
-            $translated_text = 'Nouveau';
-            break;
-            case 'Add to cart':
-            $translated_text = 'Ajouter au panier';
-            break;
-            case 'Quick View':
-            $translated_text = 'Aperçu rapide';
-            break;
-            case 'Wishlist is empty.':
-            $translated_text = 'La liste de souhaits est vide.';
-            break;
-            case 'Return to shop':
-            $translated_text = 'Retour à la boutique';
-            break;
-            case "You don't have any products in the wishlist yet. You will find a lot of interesting products on our &quot;Shop&quot; page.":
-            break;$translated_text = "Vous n'avez encore aucun produit dans votre liste de souhaits. Vous trouverez de nombreux produits intéressants sur
-            notre page \"Boutique\".";
-            case 'Shopping Cart':
-            $translated_text = 'Panier d\'achat';
-            break;
-            case 'Remove':
-            $translated_text = 'Supprimer';
-            break;
-            case 'Subtotal:':
-            $translated_text = 'Sous-total:';
-            break;
-            case 'View cart':
-            $translated_text = 'Voir le panier';
-            break;
-            case 'Checkout':
-            $translated_text = 'Passer à la caisse';
-            break;
-            case 'Your cart is empty':
-            $translated_text = 'Votre panier est vide';
-            break;
-            case 'You may check out all the available products and buy some in the shop':
-            $translated_text = 'Vous pouvez consulter tous les produits disponibles et en acheter dans la boutique';
-            break;
-            case 'Product':
-            $translated_text = 'Produit';
-            break;
-            case 'Price':
-            $translated_text = 'Prix';
-            break;
-            case 'Quantity':
-            $translated_text = 'Quantité';
-            break;
-            case 'Order notes':
-            $translated_text = 'Notes de commande';
-            break;
-            case 'Cart totals':
-            $translated_text = 'Totaux du panier';
-            break;
-            case 'Subtotal':
-            $translated_text = 'Sous-total';
-            break;
-            case 'Total':
-            $translated_text = 'Total';
-            break;
-            case 'Proceed to checkout':
-            $translated_text = 'Passer à la caisse';
-            break;
-            case 'Coupon code':
-            $translated_text = 'Code promo';
-            break;
-            case 'Apply coupon':
-            $translated_text = 'Appliquer le coupon';
-            break;
-            case 'Notes about your order, e.g. special notes for delivery.':
-            $translated_text = 'Remarques concernant votre commande, par ex. instructions spéciales pour la livraison.';
-            break;
-            case 'Update cart':
-            $translated_text = 'Mise à jour panier';
-            break;
-            case 'Invalid billing email address':
-            $translated_text = 'Adresse e-mail de facturation non valide';
-            break;
             case 'Have a coupon?':
             $translated_text = 'Vous avez un coupon ?';
             break;
@@ -213,6 +215,15 @@ function custom_translate_woocommerce_checkout( $translated_text, $text, $domain
             case 'Sorry, it seems that there are no available payment methods. Please contact us if you require assistance or wish to make alternate arrangements.':
             $translated_text = 'Désolé, il semble qu\'il n\'y ait pas de méthodes de paiement disponibles. Veuillez nous contacter si vous avez besoin d\'aide ou souhaitez prendre d\'autres dispositions.';
             break;
+        }
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'custom_translate_woocommerce_checkout', 10, 3 );
+
+function custom_translate_woocommerce_coupons( $translated_text, $text, $domain ) {
+    if ( $domain === 'woocommerce' ) {
+        switch ( $text ) {
             case 'Please enter a coupon code.':
             $translated_text = 'Veuillez entrer un code promo.';
             break;
@@ -261,6 +272,33 @@ function custom_translate_woocommerce_checkout( $translated_text, $text, $domain
             case 'Shopping Cart ':
             $translated_text =  'Panier d\'achat';
             break;
+        }
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'custom_translate_woocommerce_coupons', 10, 3 );
+
+function custom_translate_coupon_text( $translated_text, $text, $domain ) {
+    if ( $domain === 'ecomus' ) {
+        switch ( $text ) {
+            case 'Have a coupon?':
+            $translated_text = 'Vous avez un coupon ?';
+            break;
+            case 'Enter your code':
+            $translated_text = 'Entrez votre code';
+            break;
+            case 'Shopping Cart ':
+            $translated_text =  'Panier d\'achat';
+            break;
+        }
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'custom_translate_coupon_text', 10, 3 );
+
+function custom_translate_admin_menu( $translated_text, $text, $domain ) {
+    if ( $domain === 'woocommerce' ) {
+        switch ( $text ) {
             case 'Dashboard':
             $translated_text = 'Tableau de bord';
             break;
@@ -282,6 +320,15 @@ function custom_translate_woocommerce_checkout( $translated_text, $text, $domain
             case 'Invalid payment method.':
             $translated_text = 'Méthode de paiement invalide.';
             break;
+        }
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'custom_translate_admin_menu', 10, 3 );
+
+function custom_translate_order_text( $translated_text, $text, $domain ) {
+    if ( $domain === 'woocommerce' ) {
+        switch ( $text ) {
             case 'Thank you. Your order has been received.':
             $translated_text = 'Merci. Votre commande a été reçue.';
             break;
@@ -351,6 +398,7 @@ function custom_translate_woocommerce_checkout( $translated_text, $text, $domain
             case 'The following addresses will be used on the checkout page by default.':
             $translated_text =  'Les adresses suivantes seront utilisées par défaut sur la page de paiement.';
             break;
+
             case 'This will be how your name will be displayed in the account section and in reviews':
             $translated_text =  'Ceci sera la façon dont votre nom sera affiché dans la section du compte et dans les avis.';
             break;
@@ -375,6 +423,7 @@ function custom_translate_woocommerce_checkout( $translated_text, $text, $domain
             case 'Save address':
             $translated_text =  'Enregistrer l\'adresse';
             break;
+
             case 'Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)':
             $translated_text = 'Bonjour %1$s (pas %1$s? <a href="%2$s">Se déconnecter</a>)';
             break;
@@ -384,6 +433,16 @@ function custom_translate_woocommerce_checkout( $translated_text, $text, $domain
             case 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.':
             $translated_text = 'Depuis votre tableau de bord, vous pouvez consulter vos <a href="%1$s">commandes récentes</a>, gérer vos <a href="%2$s">adresses de livraison et de facturation</a> et <a href="%3$s">modifier votre mot de passe et les détails de votre compte</a>.';
             break;
+        }
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'custom_translate_order_text', 10, 3 );
+
+
+function custom_translate_product_page( $translated_text, $text, $domain ) {
+    if ( $domain === 'woocommerce' ) {
+        switch ( $text ) {
             case 'Description':
             $translated_text = 'Description';
             break;
@@ -399,24 +458,17 @@ function custom_translate_woocommerce_checkout( $translated_text, $text, $domain
             case 'Reviews':
             $translated_text = 'Avis';
             break;
+
         }
     }
     return $translated_text;
 }
-add_filter( 'gettext', 'custom_translate_woocommerce_checkout', 10, 3 );
+add_filter( 'gettext', 'custom_translate_product_page', 10, 3 );
+
 
 function custom_translate_product_page_ecomus( $translated_text, $text, $domain ) {
     if ( $domain === 'ecomus' ) {
         switch ( $text ) {
-            case 'Have a coupon?':
-            $translated_text = 'Vous avez un coupon ?';
-            break;
-            case 'Enter your code':
-            $translated_text = 'Entrez votre code';
-            break;
-            case 'Shopping Cart ':
-            $translated_text =  'Panier d\'achat';
-            break;
             case 'Show More':
             $translated_text = 'Afficher plus';
             break;
@@ -435,6 +487,7 @@ function custom_translate_product_page_ecomus( $translated_text, $text, $domain 
             case 'Quantity:':
             $translated_text = 'Quantité:';
             break;
+
             case 'Customer Reviews':
             $translated_text = 'Avis des clients';
             break;
@@ -450,12 +503,14 @@ function custom_translate_product_page_ecomus( $translated_text, $text, $domain 
             case 'Your review':
             $translated_text = 'Votre avis';
             break;
+
             case 'Submit Review':
             $translated_text = 'Soumettre un avis';
             break;
             case 'Write a review':
             $translated_text = 'Écrire un avis';
             break;
+
             case '%1$s review for %2$s':
             $translated_text = '%1$s avis pour %2$s';
             break;
@@ -542,6 +597,9 @@ function custom_translate_plural_texts( $translated_text, $text, $plural, $numbe
     return $translated_text;
 }
 add_filter( 'ngettext', 'custom_translate_plural_texts', 20, 5 );
+
+
+
 
 function custom_translate_cod_gateway( $available_gateways ) {
     if ( isset( $available_gateways['cod'] ) ) {
