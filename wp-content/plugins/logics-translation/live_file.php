@@ -155,16 +155,12 @@ function custom_translate_texts( $translated_text, $text, $domain ) {
     if ( $text === 'Invalid billing email address' ) {
         return 'Adresse e-mail de facturation non valide';
     }
-    if($text === 'Search'){
-        return 'Rechercher';
-    }
     if ( strpos( $text, 'is a required field.' ) !== false ) {
         $translated_text = str_replace( 'is a required field.', 'est un champ obligatoire.', $text );
     }
     if ( strpos( $text, 'is not a valid postcode / ZIP.' ) !== false ) {
         $translated_text = str_replace( 'is not a valid postcode / ZIP.', "n'est pas un code postal valide.", $text );
     }
-
     return $translated_text;
 }
 add_filter( 'gettext', 'custom_translate_texts', 20, 3 );
@@ -334,12 +330,6 @@ function custom_translate_coupon_text( $translated_text, $text, $domain ) {
             break;
             case 'Password':
             $translated_text =  'Mot de passe';
-            break;
-            case 'Share:':
-            $translated_text =  'Partager:';
-            break;
-            case 'Back to':
-            $translated_text = 'Retour à';
             break;
         }
     }
@@ -616,34 +606,6 @@ function custom_translate_product_page_ecomus( $translated_text, $text, $domain 
             case 'Reviews':
             $translated_text = 'Avis';
             break;
-            case 'Nothing Found':
-            $translated_text = 'Rien trouvé';
-            break;
-            case 'Sorry, but nothing matched your search terms. Please try again with some different keywords.':
-            $translated_text = 'Désolé, mais rien ne correspond à vos termes de recherche. Veuillez réessayer avec des mots clés différents.';
-            break;
-            case 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.';
-            $translated_text = 'Il semble que nous ne parvenions pas à trouver ce que vous recherchez. Une recherche peut peut-être vous aider.';
-            break;
-            case 'Sorry, but nothing matched your search terms.';
-            $translated_text = 'Désolé, mais rien ne correspond à vos termes de recherche.';
-            break;
-            case '%d Search Results for: "%s"':
-            $translated_text = '%d Résultats de recherche pour: "%s"';
-            break;
-            case 'Search results for':
-            $translated_text = 'Résultats de recherche pour';
-            break;
-
-            case 'Search Results';
-            $translated_text = 'Résultats de la recherche';
-            break;
-            case 'Page Not Found';
-            $translated_text = 'Page non trouvée';
-            break;
-            case 'The Latest Posts';
-            $translated_text = 'Les derniers articles';
-            break;
         }
     }
     return $translated_text;
@@ -670,9 +632,6 @@ function custom_translate_plural_texts( $translated_text, $text, $plural, $numbe
             break;
             case '%s reviews':
             $translated_text = "%s avis";
-            break;
-            case 'Back to':
-            $translated_text = 'Retour à';
             break;
         }
     }
@@ -703,14 +662,6 @@ function custom_wishlist_tooltip_text() {
                     $('.wcboost-products-compare-button').attr('data-tooltip', 'Comparer');
                     $('.wcboost-products-compare-button').attr('data-tooltip_added', 'Parcourir la comparaison');
                 }, 5000);
-        });
-        jQuery(document).ready(function($) {
-            $('.product-navigation__button').each(function() {
-                var text = $(this).attr('data-text');
-                if (text.includes('Back to')) {
-                    $(this).attr('data-text', text.replace('Back to', 'Retour à'));
-                }
-            });
         });
     </script>
     <?php
@@ -777,9 +728,6 @@ function custom_translate_coupon_text_new( $translated_text, $text, $domain ) {
             break;
             case 'You may also like&hellip;':
             $translated_text =  'Vous aimerez aussi';
-            break;
-            case 'Open Sidebar':
-            $translated_text =  'Ouvrir Barre latérale';
             break;
 
         }
@@ -883,4 +831,3 @@ function custom_translate_lost_password_text($translated_text, $text, $domain) {
 }
 
 add_filter('gettext', 'custom_translate_lost_password_text', 10, 3);
-
