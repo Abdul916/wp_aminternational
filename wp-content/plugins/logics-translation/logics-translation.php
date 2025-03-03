@@ -173,7 +173,7 @@ function custom_translate_woocommerce_checkout( $translated_text, $text, $domain
     if ( $domain === 'woocommerce' ) {
         switch ( $text ) {
             case 'Have a coupon?':
-            $translated_text = 'Vous avez un coupon ?';
+            $translated_text = 'Vous avez un coupon?';
             break;
             case 'Enter your code':
             $translated_text = 'Entrez votre code';
@@ -294,7 +294,7 @@ function custom_translate_woocommerce_coupons( $translated_text, $text, $domain 
             $translated_text =  'Connecté en tant que %s.';
             break;
             case 'Lost your password?':
-            $translated_text =  'Lost your password?????';
+            $translated_text =  'Mot de passe perdu?';
             break;
         }
     }
@@ -306,7 +306,7 @@ function custom_translate_coupon_text( $translated_text, $text, $domain ) {
     if ( $domain === 'ecomus' ) {
         switch ( $text ) {
             case 'Have a coupon?':
-            $translated_text = 'Vous avez un coupon ?';
+            $translated_text = 'Vous avez un coupon?';
             break;
             case 'Enter your code':
             $translated_text = 'Entrez votre code';
@@ -318,7 +318,7 @@ function custom_translate_coupon_text( $translated_text, $text, $domain ) {
             $translated_text =  'En savoir plus';
             break;
             case 'Lost your password?':
-            $translated_text =  'Mot de passe perdu ?';
+            $translated_text =  'Mot de passe perdu?';
             break;
             case 'Remember me':
             $translated_text =  'Souviens-toi de moi';
@@ -722,6 +722,12 @@ add_filter( 'gettext', 'custom_translate_coupon_text_new', 10, 3 );
 function custom_translate_coupon_text_new( $translated_text, $text, $domain ) {
     if ( $domain === 'ecomus' ) {
         switch ( $text ) {
+            case 'Search our site':
+            $translated_text = 'Rechercher sur nos sites';
+            break;
+            case 'Need some inspiration?':
+            $translated_text = "Besoin d'inspiration ?";
+            break;
             case 'Previous':
             $translated_text = 'Précédent';
             break;
@@ -850,7 +856,7 @@ function custom_translate_login_errors($translated_text, $text, $domain) {
             case 'Unknown email address. Check again or try your username.':
             return 'Adresse e-mail inconnue. Vérifiez à nouveau ou essayez votre nom d’utilisateur.';
             case 'Lost your password?':
-            return 'Mot de passe oublié ?';
+            return 'Mot de passe oublié?';
             case 'Please log in again.':
             return 'Veuillez vous reconnecter.';
         }
@@ -866,7 +872,7 @@ function custom_translate_lost_password_text($translated_text, $text, $domain) {
             case 'Lost Password':
             return 'Mot de passe oublié';
             case 'Lost your password? Please enter your username or email address. You will receive a link to create a new password via email.':
-            return 'Mot de passe oublié ? Veuillez entrer votre nom d\'utilisateur ou votre adresse e-mail. Vous recevrez un lien par e-mail pour créer un nouveau mot de passe.';
+            return 'Mot de passe oublié? Veuillez entrer votre nom d\'utilisateur ou votre adresse e-mail. Vous recevrez un lien par e-mail pour créer un nouveau mot de passe.';
             case 'Username or email':
             return 'Nom d’utilisateur ou e-mail';
             case '*Required':
