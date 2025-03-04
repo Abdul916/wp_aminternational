@@ -11,14 +11,19 @@ Text Domain: Logics Translation
 */
 
 
+add_action('woocommerce_review_order_after_order_total', 'custom_checkout_shipping_info');
+function custom_checkout_shipping_info() {
+    if (is_checkout()) {
+        echo '<div id="custom_shipping_info">';
+        echo '<span><strong>Livraison Express :</strong> 48H</span><br>';
+        echo '<span><strong>Livraison Standard :</strong> 5 jours</span><br>';
+        echo '<span><strong>Livraison disponible :</strong> France, Suisse, Belgique, Allemagne, Espagne et Italie</span><br>';
+        echo '</div>';
+    }
+}
 
-// add_action('woocommerce_review_order_after_order_total', 'custom_checkout_shipping_info');
 
-// function custom_checkout_shipping_info() {
-//     echo '<p><strong>Livraison Express :</strong> 48H</p>';
-//     echo '<p><strong>Livraison Standard :</strong> 5 jours</p>';
-//     echo '<p><strong>Livraison disponible :</strong> France, Suisse, Belgique, Allemagne, Espagne et Italie</p>';
-// }
+
 
 
 
@@ -696,13 +701,12 @@ function custom_wishlist_tooltip_text() {
     ?>
     <script type="text/javascript">
         jQuery(document).ready( function($) {
-            setTimeout(
-                function() {
-                    $('.wcboost-wishlist-button').attr('data-tooltip', 'Ajouter à la liste de souhaits');
-                    $('.wcboost-wishlist-button').attr('data-tooltip_added', 'Retirer de la liste de souhaits');
-                    $('.wcboost-products-compare-button').attr('data-tooltip', 'Comparer');
-                    $('.wcboost-products-compare-button').attr('data-tooltip_added', 'Parcourir la comparaison');
-                }, 5000);
+            setTimeout(function() {
+                $('.wcboost-wishlist-button').attr('data-tooltip', 'Ajouter à la liste de souhaits');
+                $('.wcboost-wishlist-button').attr('data-tooltip_added', 'Retirer de la liste de souhaits');
+                $('.wcboost-products-compare-button').attr('data-tooltip', 'Comparer');
+                $('.wcboost-products-compare-button').attr('data-tooltip_added', 'Parcourir la comparaison');
+            }, 5000);
         });
         jQuery(document).ready(function($) {
             $('.product-navigation__button').each(function() {
