@@ -11,19 +11,14 @@ Text Domain: Logics Translation
 */
 
 
-add_action('woocommerce_review_order_after_order_total', 'custom_checkout_shipping_info');
-function custom_checkout_shipping_info() {
-    if (is_checkout()) {
-        echo '<div id="custom_shipping_info">';
-        echo '<span><strong>Livraison Express :</strong> 48H</span><br>';
-        echo '<span><strong>Livraison Standard :</strong> 5 jours</span><br>';
-        echo '<span><strong>Livraison disponible :</strong> France, Suisse, Belgique, Allemagne, Espagne et Italie</span><br>';
-        echo '</div>';
-    }
-}
 
+// add_action('woocommerce_review_order_after_order_total', 'custom_checkout_shipping_info');
 
-
+// function custom_checkout_shipping_info() {
+//     echo '<p><strong>Livraison Express :</strong> 48H</p>';
+//     echo '<p><strong>Livraison Standard :</strong> 5 jours</p>';
+//     echo '<p><strong>Livraison disponible :</strong> France, Suisse, Belgique, Allemagne, Espagne et Italie</p>';
+// }
 
 
 
@@ -679,6 +674,9 @@ function custom_translate_plural_texts( $translated_text, $text, $plural, $numbe
             case 'Back to':
             $translated_text = 'Retour à';
             break;
+            case 'Customers also bought':
+            $translated_text =  'Les clients ont également acheté';
+            break;
         }
     }
     return $translated_text;
@@ -701,7 +699,7 @@ function custom_wishlist_tooltip_text() {
     ?>
     <script type="text/javascript">
         jQuery(document).ready( function($) {
-            setTimeout(function() {
+            setTimeout( function() {
                 $('.wcboost-wishlist-button').attr('data-tooltip', 'Ajouter à la liste de souhaits');
                 $('.wcboost-wishlist-button').attr('data-tooltip_added', 'Retirer de la liste de souhaits');
                 $('.wcboost-products-compare-button').attr('data-tooltip', 'Comparer');
@@ -716,6 +714,16 @@ function custom_wishlist_tooltip_text() {
                 }
             });
         });
+        jQuery(document).ready(function($) {
+            setTimeout( function() {
+                $('.ecomus-price-saved').each(function() {
+                    let text = $(this).html();
+                    let translatedText = text.replace('Save:', 'Économisez:');
+                    $(this).html(translatedText);
+                });
+            }, 500);
+        });
+
     </script>
     <?php
 }
@@ -791,6 +799,9 @@ function custom_translate_coupon_text_new( $translated_text, $text, $domain ) {
             case 'Open Sidebar':
             $translated_text =  'Ouvrir Barre latérale';
             break;
+            case 'Customers also bought':
+            $translated_text =  'Les clients ont également acheté';
+            break;
 
         }
     }
@@ -863,6 +874,8 @@ function custom_translate_login_errors($translated_text, $text, $domain) {
             return 'Mot de passe oublié?';
             case 'Please log in again.':
             return 'Veuillez vous reconnecter.';
+            case 'Customers also bought':
+            return 'Les clients ont également acheté';
         }
     }
     return $translated_text;
